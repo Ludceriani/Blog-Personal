@@ -13,6 +13,11 @@
             <br>
             <button class="button is-danger is-outlined is-normal">Post</button>
     </div>
+
+    <script>
+        var name = "{{ user.id }}";
+        document.getElementById("elder").value = name;
+    </script>
 {% else %}
 You are not allowed here!
 {% endif %}
