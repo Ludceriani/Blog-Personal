@@ -26,5 +26,25 @@
         <a href="{% url 'home' %}" >Back</a>
     </button>
 
+    <br/><br/>
+    <hr>
+    <br/>
+    <form action="{% url 'like_post' post.pk %}" method="POST">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            {% if liked %}        
+                <button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary btn-sm" >Unlike</button>
+            {% else %}
+                <button type="submit" , name="post_id" , value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
+            {% endif %}
+        {% else %}
+           <small>         
+            Loggin to Like            
+            <a class="button is-light" href="{% url 'login' %}">Log in </a>
+            <br>
+        </small>            
+        {% endif %} 
+            - {{ total_likes }} Likes
+    </form>
 
 {% endblock %}
