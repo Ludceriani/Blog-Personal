@@ -16,7 +16,8 @@
                 {% endif %}
             
             </small><br/>
-            {{ post.body|slice:":500"|safe}}</li>
+            {{ post.snippet }}
+            </li>
         {% endfor %}
     </ul>
 
